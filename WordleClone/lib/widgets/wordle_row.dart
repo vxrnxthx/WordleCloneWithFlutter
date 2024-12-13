@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:untitled/widgets/wordle_letterbox.dart';
-const wordsize=5;
 
 class WordleRow extends StatelessWidget {
-  const WordleRow({super.key});
+  final int wordsize;
+  const WordleRow({Key? key, required this.wordsize}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

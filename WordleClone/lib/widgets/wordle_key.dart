@@ -5,13 +5,13 @@ class WordleKey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget keyCap;
-    double w=60;
+    double w=50;
     if(letter=="_")
       keyCap=Icon(Icons.keyboard_return_outlined, color: Colors.white, size: 18,);
     else if (letter=="<")
         keyCap=Icon(Icons.backspace_outlined, color: Colors.white, size: 18,);
     else {
-      w=40;
+      w=35;
       keyCap = Text(letter,
         style: TextStyle(
           fontSize: 16,
