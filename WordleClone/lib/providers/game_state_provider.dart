@@ -53,24 +53,44 @@ class GameStateNotifier extends StateNotifier<GameState>{
     print("new correct word = ${state.correctWord}");
   }
   void updateCurrentAttempt(String key){
-    if(key == "_"){ //handle enter press
+    final attempts = state.attempts;
+    if(attempts.length <= state.attempted){
+      attempts.add("");
+    }
+    var currentAttempt = attempts[state.attempted];
 
+    if(key == "_"){ //handle enter press
+      if(currentAttempt.length < state.settings.wordsize){
+        print("attempted word incomplete");
+        return;
+      }
+      if(!state.validWords.contains(currentAttempt)) {
+        print("not in valid words list");
+        return;
+      }
+      state = state.clone(
+        attempted: state.attempted +1
+      );
     }
     else if(key == "<"){ //handle delete backspace
-
+      if(currentAttempt.isEmpty){
+        print("cannot backspace on empty string");
+        return;
+      }
+      currentAttempt = currentAttempt.substring(0, currentAttempt.length - 1);
+      attempts[state.attempted] = currentAttempt ;
+      state = state.clone(
+          attempts: attempts
+      );
     }
     else{
-      var currentAttempt ="";
-      final attempts = state.attempts;
-      if(attempts.length > state.attempted){
-        currentAttempt = attempts[state.attempted];
-      }
+
       if(currentAttempt.length >= state.settings.wordsize){
         print("trying to type word longer than correct word length");
         return;
       }
       currentAttempt += key;
-      attempts[state.attempted] = currentAttempt;
+      attempts[state.attempted] = currentAttempt ;
       state = state.clone(
         attempts: attempts
       );

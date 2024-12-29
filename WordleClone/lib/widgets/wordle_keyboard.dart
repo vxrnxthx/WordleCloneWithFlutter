@@ -12,7 +12,7 @@ class WordleKeyboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            for(var i in "QWERTYUIOP".split(""))
+            for(var i in "qwertyuiop".split(""))
               WordleKey(i)
           ],
         ),
@@ -20,7 +20,7 @@ class WordleKeyboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            for(var i in "ASDFGHJKL".split(""))
+            for(var i in "asdfghjkl".split(""))
               WordleKey(i)
           ],
         ),
@@ -28,7 +28,7 @@ class WordleKeyboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            for(var i in "_ZXCVBNM<".split(""))
+            for(var i in "_zxcvbnm<".split(""))
               WordleKey(i)
 
           ],
