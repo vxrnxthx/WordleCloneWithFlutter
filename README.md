@@ -1,6 +1,6 @@
 # Wordle Game
 
-This is a simple and interactive Wordle game built using Flutter. The game allows users to guess a 5-letter word within a limited number of attempts. It provides real-time feedback for each guess and changes colors to indicate whether letters are correctly placed, present in the word, or absent altogether.
+This is a simple and interactive Wordle game built using Flutter. The game allows users to guess a 4, 5 or 6-letter word with three levels of difficulty (Low, Medium, High). It provides real-time feedback for each guess and changes colors to indicate whether letters are correctly placed, present in the word, or absent altogether.
 
 ## Features
 
