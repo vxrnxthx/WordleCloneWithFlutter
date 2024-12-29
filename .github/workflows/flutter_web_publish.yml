@@ -3,7 +3,7 @@ name: Flutter Web Deployment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
       # Step 4: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/web
