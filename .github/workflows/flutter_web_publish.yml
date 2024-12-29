@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_HREF: /${{ github.event.repository.name }}/
+    permissions:
+      contents: write  # Ensure write permissions for contents
     steps:
       # Step 1: Checkout Repository
       - name: Checkout Repository
@@ -38,5 +40,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}  # Use the PAT secret here
           publish_dir: ./WordleClone/build/web
