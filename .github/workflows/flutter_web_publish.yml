@@ -16,11 +16,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # Step 2: Set up Flutter (with a compatible version)
+      # Step 2: Set up Flutter (use a version that includes Dart SDK 3.5.4+)
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.5'   # Update this version as per your needs
+          flutter-version: '3.13.0'  # Updated to a newer version that includes Dart SDK 3.5.4+
           channel: 'stable'
 
       # Step 3: Run flutter pub get
