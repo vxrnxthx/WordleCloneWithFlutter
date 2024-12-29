@@ -12,7 +12,7 @@ jobs:
     env:
       BASE_HREF: /${{ github.event.repository.name }}/
     steps:
-      # Step 1: Check out the repository
+      # Step 1: Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -23,14 +23,25 @@ jobs:
           flutter-version: '2.8.1'
           channel: 'stable'
 
-      # Step 3: Build Flutter web app
+      # Step 3: Debug Directory (Optional)
+      - name: Debug Directory
+        run: ls -la
+        working-directory: ./WordleClone
+
+      # Step 4: Run flutter pub get
+      - name: Install Dependencies
+        run: flutter pub get
+        working-directory: ./WordleClone
+
+      # Step 5: Build Flutter Web App
       - name: Build Flutter Web
         run: flutter build web --release --web-renderer html --base-href $BASE_HREF
+        working-directory: ./WordleClone
 
-      # Step 4: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+          publish_dir: ./WordleClone/build/web
