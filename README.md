@@ -4,7 +4,7 @@ This is a simple and interactive Wordle game built using Flutter. The game allow
 
 ## Features
 
-- Play Wordle with a 5-letter word.
+- Play Wordle with a 4, 5 or 6 letter word
 - Real-time feedback on guesses (color-coded for correct, present, or incorrect letters).
 - Word size and number of attempts can be customized.
 
